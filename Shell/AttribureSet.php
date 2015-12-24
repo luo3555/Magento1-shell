@@ -14,8 +14,6 @@
  */
 namespace AttribureSet;
 
-use Base\Object;
-
 class AttribureSet extends Object
 {
     protected function 
