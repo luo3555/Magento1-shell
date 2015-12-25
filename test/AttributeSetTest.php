@@ -18,14 +18,22 @@ try {
 
 $data = [
     'entity_type_id' => 4,
-    'attribute_set_name' => 'Test aaab',
+    'attribute_set_name' => 'Test aaabb',
     'sort_order' => 0
 ];
 
-$attrSet = new Shell\AttribureSet($data);
+$attrSet = new Shell\AttribureSet();
 $attrSet->init($pdo->getDb());
-$insertId = $attrSet->createAttributeSet();
-echo $insertId;
+
+$insertId = $attrSet->createAttributeSet($data);
+// echo $insertId;
+$attrSetId = 1;
+// $attrSet->setAttributeSetId($attrSetId);
+// $attrInfo = $attrSet->getAttrGroupInfo();
+// print_r($attrInfo);
+
+$attrInfo = $attrSet->getAttributeEntity($attrSetId);
+print_r($attrInfo);
 
     echo 'Completed' . PHP_EOL;
 } catch ( \Exception $e ) {

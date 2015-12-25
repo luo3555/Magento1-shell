@@ -11,6 +11,7 @@ namespace Shell;
 
 class AbstructMod extends Object
 {
+    protected $_prepare;
 
     public function init($pdo)
     {
@@ -45,13 +46,55 @@ class AbstructMod extends Object
      *
      * @param $sql string
      * @param $data array
-     * @return false | last insert id
+     * @return void
      */
     protected function execute($sql, $data)
     {
-        $prepare = $this->getPDO()->prepare($sql);
-        $prepare->execute($data);
+        $this->_prepare = $this->getPDO()->prepare($sql);
+        $this->_prepare->execute($data);
+        return $this->_prepare;
+    }
+
+
+    /**
+     * insert
+     *
+     * @param $sql string
+     * @param $data array
+     * @return false | last insert id
+     */
+    public function insert($sql, $data)
+    {
+        $this->execute($sql, $data);
         return $this->getPDO()->lastInsertId();
+    }
+
+
+    /**
+     * insert
+     *
+     * @param $sql string
+     * @param $data array
+     * @return array
+     */
+    public function select($sql, $data)
+    {
+        $this->execute($sql, $data);
+        return $this->_prepare->fetchAll(\PDO::FETCH_CLASS);
+    }
+
+
+    /**
+     * count
+     *
+     * @param $sql string
+     * @param $data array
+     * @return array
+     */
+    public function count($sql, $data)
+    {
+        $this->execute($sql, $data);
+        return $this->_prepare->rowCount();
     }
 
 
@@ -64,9 +107,7 @@ class AbstructMod extends Object
      */
     protected function isUnique($sql, $data)
     {
-        $prepare = $this->getPDO()->prepare($sql);
-        $prepare->execute($data);
-        return $prepare->rowCount();
+        return $this->count($sql, $data);
     }
 
 
