@@ -2,7 +2,7 @@
 /**
  * Base object, all class need extends this Object
  *
- * @package Tools/Magento
+ * @package tools/magento-shell
  * @author daniel.luo <daniel.luo@silksoftware.com>
  */
 namespace Base;

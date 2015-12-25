@@ -2,7 +2,7 @@
  /**
   * PDO base class
   *
-  * @package   Tools/Magento
+  * @package   tools/magento-shell
   * @author      Daniel.luo <daniel.luo@silksoftware.com>
   * 
   * $dns = [
