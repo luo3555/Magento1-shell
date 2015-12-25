@@ -5,7 +5,7 @@
  * @package tools/magento-shell
  * @author daniel.luo <daniel.luo@silksoftware.com>
  */
-namespace Base;
+namespace Shell;
 
 class Object implements \ArrayAccess
 {

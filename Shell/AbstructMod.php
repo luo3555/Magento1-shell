@@ -7,7 +7,7 @@
  * @package tools/magento-shell
  * @author Daniel.luo <daniel.luo@silksoftware.com>
  */
-namespace Base;
+namespace Shell;
 
 class AbstructMod extends Object
 {

@@ -12,7 +12,7 @@
  * eav_attribute_group
  * eav_entity_attribute
  */
-namespace AttribureSet;
+namespace Shell;
 
 class AttribureSet extends AbstructMod
 {

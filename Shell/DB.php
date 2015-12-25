@@ -18,7 +18,7 @@
   * }
   * unset($pdo);
   */
-namespace Base;
+namespace Shell;
 
 class DB extends Object
 {
